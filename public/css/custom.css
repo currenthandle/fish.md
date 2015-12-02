@@ -1,0 +1,105 @@
+body {
+	background-image: url("../img/background.jpg");
+}
+
+#logo {
+	width: 20% !important;
+	margin: 5px 0 5px 0;
+}
+.navbar {
+	margin-bottom: 0;
+}
+.navbar-default {
+	display: block-inline;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 0;
+	border-top: 1px solid #777;
+	border-right: none;
+	
+	border-left: none;
+	border-bottom: none;
+}
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+.navbar.center .navbar-inner .nav {
+    float: none;
+    display:inline-block;
+}
+.navbar ul li{
+	margin: 0 25px 0 25px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #ccc;
+}
+
+@media (min-width: 979px) {
+	.navbar-nav>li:hover>.dropdown-menu{
+    display: block;
+  }
+}
+
+.navbar-nav .dropdown-menu {
+	background-color: black;	
+	background-image: url("../img/background.jpg");
+}
+
+.navbar-nav .dropdown-menu>li>a {
+	color: #ccc;	
+	font-size: 14px;
+}
+
+.navbar-nav .dropdown-menu>li>a:hover {
+	
+	background-image: url("../img/background.jpg");
+	color: #777;
+}
+
+
+#slider {
+	margin: 0 0 20px 0;
+}
+
+#slider img {
+	width: 100%;
+	background-image:none;
+}
+.carousel-control {
+	background: none !important;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+	margin-left: -50px;
+}
+
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+	margin-right: -50px;
+}
+#promos {
+	margin: 30px 0 30px 0;
+}
+
+footer{
+	border-top: double;
+	margin: 100px 0 20px 0;
+	padding-top: 30px;
+}
+footer p{
+	font-weight: bold;
+	font-size: 16px;
+	color: #ccc;
+}
+	
+footer a{
+	display: block;
+}
+
+footer form{
+	display: inline !important;
+}
+
+footer span{
+	padding-left: -8px;
+}
