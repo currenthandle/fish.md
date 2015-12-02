@@ -13,9 +13,11 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
+	<script src='/js/bootstrap.min.js'></script>
+	
     <!-- Custom CSS -->
-    <link href="/css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+	<link href='/css/lps.css' rel='stylesheet'>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,69 +29,86 @@
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+	<!-- Footer -->
+	<div class='container'>	
+		<header>
+		<div class='row'>
+			<a href='/'> <img src='/img/logo.png' id='logo' class='col-md-offset-1'></a>
         </div>
-        <!-- /.container -->
-    </nav>
+		</header>
+		<nav class="navbar navbar-default center">
+			<div class='navbar-inner'>
+			  <ul class="nav navbar-nav">
+				<li>
+					<a href='/corals'>Corals</a>
+					<ul class="dropdown-menu" > <!--type="button" data-toggle="dropdown"-->
+						<li><a href="/corals/lps">LPS</a></li>
+						<li><a href="#">SPS</a></li>
+						<li><a href="#">Soft Corals</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href='/'>Fish</a>
+					<ul class="dropdown-menu multi-level" role='menu' > <!--type="button" data-toggle="dropdown"-->
+						<li class='dropdown-submenu'>
+							<a href="/corals/lps">By Region</a>
 
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h1 class="page-header">Thumbnail Gallery</h1>
-            </div>
-
-			<% for( coral in corals) {%>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-				<a class="thumbnail" href="<%= corals[coral].productCode%>">
-					<img class="img-responsive" src="/<%= corals[coral].thumbnailImg%>" alt="">
-				</a>
-				
-				<span> <%= corals[coral].light%> </span>
-            </div>
+							<ul class="dropdown-menu" > <!--type="button" data-toggle="dropdown"-->
+								<li><a href="/corals/lps">Central Pacific</a></li>
+								<li><a href="#">SPS</a></li>
+								<li><a href="#">Soft Corals</a></li>
+							</ul>
+						</li>
+						<li><a href="#">SPS</a></li>
+						<li><a href="#">Soft Corals</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href='/corals'>Marine Algae</a>
+					<ul class="dropdown-menu" > <!--type="button" data-toggle="dropdown"-->
+						<li><a href="/corals/lps">LPS</a></li>
+						<li><a href="#">SPS</a></li>
+						<li><a href="#">Soft Corals</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href='/corals'>Dry Goods</a>
+					<ul class="dropdown-menu" > <!--type="button" data-toggle="dropdown"-->
+						<li><a href="/corals/lps">LPS</a></li>
+						<li><a href="#">SPS</a></li>
+						<li><a href="#">Soft Corals</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href='/corals'>Healthy Tank Kits</a>
+					<ul class="dropdown-menu" > <!--type="button" data-toggle="dropdown"-->
+						<li><a href="/corals/lps">LPS</a></li>
+						<li><a href="#">SPS</a></li>
+						<li><a href="#">Soft Corals</a></li>
+					</ul>
+				</li>
+			  </ul>
+			</div>
+		</nav>
+		<div class='row'>
+			<% for(var i=0; i<corals.length; i++) {%>
+				<div class='col-sm-3 col-xs-6'>
+					<div class='product thumbnail'>
+						<a href='/corals/lps/<%= corals[i].productCode %>' >
+							<img class='img-responsive' src=<%= corals[i].thumbnailImg %> >
+						</a>
+						<h3><%= corals[i].commonName %></h3>
+					</div>
+				</div>
 			<% } %>
-        </div>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
+		</div>
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
 
     </div>
     <!-- /.container -->

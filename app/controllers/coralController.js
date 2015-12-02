@@ -1,5 +1,24 @@
 var Coral = require('mongoose').model('Coral')
 
+exports.read = function(req, res){
+	console.log('req.coral',req.coral)
+	res.json(req.coral)
+}
+
+exports.coralByProductCode = function(req, res, next, productCode) {
+	console.log('coralByProductCode')
+	Coral.findOne({
+		productCode: productCode
+	}, function(err, coral) {
+		if (err) {
+			return next(err)
+		} else {
+			req.coral = coral
+			next()
+		}
+	})
+}
+
 exports.create = function(req,res, next) {
 	var coral = new Coral(req.body)	
 	coral.save(function(err){
@@ -24,7 +43,6 @@ exports.render = function(req, res) {
 	if (req.session.lastVisit) {
 		console.log(req.session.lastVisit)
 	}
-	
 	req.session.lastVisit = new Date()
 	
 	res.render('corals', {
@@ -43,16 +61,10 @@ exports.renderLps = function(req, res) {
 		if (err) {
 			return next(err)
 		} else { 
-	//		res.json(corals)
-			console.log('typeof corals', typeof corals)
-			console.log('corals',corals)
 			for(coral in corals){
 				console.log('cora',coral)
-				console.log(corals[coral].type)
 			}
 			res.render('lps',  {corals : corals} )		
 		}
 	})
-	
-	
 }
