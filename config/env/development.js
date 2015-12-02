@@ -1,5 +1,5 @@
 module.exports = {
 	//db: 'mongodb://localhost/fish-doctor',
-	db: 'mongodb://heroku_2kf6v4sk:heroku_2kf6v4sk@ds059694.mongolab.com:59694/heroku_2kf6v4sk',
+	db: 'mongodb://casey:casey99@ds061954.mongolab.com:61954/heroku_d7056pt2',
 	sessionSecret: 'developmentSessionSecret'
 }

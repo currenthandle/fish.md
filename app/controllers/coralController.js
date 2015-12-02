@@ -50,7 +50,7 @@ exports.render = function(req, res) {
 	})		
 }
 
-exports.renderLps = function(req, res) {
+exports.renderLps = function(req, res, next) {
 	if (req.session.lastVisit) {
 		console.log(req.session.lastVisit)
 	}
