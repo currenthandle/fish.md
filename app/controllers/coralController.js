@@ -5,18 +5,22 @@ exports.read = function(req, res){
 	res.json(req.coral)
 }
 
-exports.coralByProductCode = function(req, res, next, productCode) {
-	console.log('coralByProductCode')
-	Coral.findOne({
-		productCode: productCode
+exports.coralByPC = function(req, res, next) {
+	console.log('req.params.productCode',req.params.productCode)
+	Coral.findOne({ 
+		productCode: req.params.productCode 
 	}, function(err, coral) {
 		if (err) {
 			return next(err)
 		} else {
-			req.coral = coral
-			next()
+			//res.json(coral)
+			res.render('coral', {coral: coral})
 		}
 	})
+}
+
+function renderProduct(req, res, coral) {
+	res	
 }
 
 exports.create = function(req,res, next) {
@@ -50,6 +54,24 @@ exports.render = function(req, res) {
 	})		
 }
 
+exports.renderCoral = function(req, res, next) {
+	if (req.session.lastVisit) {
+		console.log(req.session.lastVisit)
+	}
+	
+	req.session.lastVisit = new Date()
+	
+	Coral.find({}, function(err, corals) {
+		if (err) {
+			return next(err)
+		} else { 
+			for(coral in corals){
+				console.log('cora',coral)
+			}
+			res.render('lps',  {corals : corals} )		
+		}
+	})
+}
 exports.renderLps = function(req, res, next) {
 	if (req.session.lastVisit) {
 		console.log(req.session.lastVisit)
