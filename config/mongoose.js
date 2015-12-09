@@ -7,6 +7,7 @@ module.exports = function() {
 	require('../app/models/mailingListModel')
 	require('../app/models/user.server.model')
 	require('../app/models/coralModel')
+	require('../app/models/productModel')
 	
 	return db
 }

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	
+</head>
+<body>
+	<div class="container">
+		<img src="/img/corals/c.jpg">
+		<img src="/img/corals/test/test.jpg">
+		<img src="/img/corals/LPS-CNDY-BTTN-CAULASTREA/thumbnai.jpg">
+		<img src="/img/b.jpg">
+		<img src="/img/b.jpg">
+		<img src="/img/corals/a.jpg">
+		<img src="/img/corals/b.jpg">
+		<img src="/img/corals/c.jpg">
+		<img src="/img/corals/lps/c.jpg">
+		
+		<% for (var i = 0; i < corals.length; i++) {  %>
+			<%= corals[i] %>
+			<br>
+			corals[i].productCode<%= corals[i].productCode %>
+			<img src=<%= corals[i].thumbnailImg %>>
+			<h3><%= corals[i].commonName %></h3>
+		<% } %>
+	</div>	
+	
+</body>
+</html>

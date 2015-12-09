@@ -31,11 +31,17 @@ module.exports = function() {
 	app.set('views', './app/views')
 	app.set('view engine', 'ejs')
 	
+	
+	app.use(express.static('./public'))
+	app.use(function(req, res, next){ 
+		console.log('Requesting static file: ' + req.url); next(); 
+	});	
+	
 	require('../app/routes/index.server.routes.js')(app)
 	require('../app/routes/users.server.routes.js')(app)
 	require('../app/routes/coralRoute.js')(app)
-	
-	app.use(express.static('./public'))
+	require('../app/routes/productRoutes.js')(app)
+	require('../app/routes/admin.js')(app)
 	
 	return app
 }

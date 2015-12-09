@@ -1,26 +1,23 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema
 	
-var CoralSchema = new Schema({
+var FishSchema = new Schema({
 	productCode: String,
 	
 	type: String,
-	genius: String,
+
+	region: String,
 	
 	thumbnailImg: String,
 	fullImg: String,
 	
 	commonName: String,
 	scientificName: String,
-	origin: String,
-	care: String,
-	behavior: String,
-	diet: String,
-	habitat: String,
-	light: String
+
+	description: String
 })
 
 
 
-mongoose.model('Coral', CoralSchema)
+mongoose.model('Fish', FishSchema)
 

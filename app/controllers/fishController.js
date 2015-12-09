@@ -1,5 +1,30 @@
-var Coral = require('mongoose').model('Coral')
+var Fish = require('mongoose').model('Fish')
+exports.renderSelector = function(req, res) {
+	Fish.find({type: req.params.selector},
+		//callback
+		function(err, data){
+			if(err) {
+				return next(err)
+			} else {
+				if(data){
+					res.render('fishSelector', {selector, req.params.selector, fishs: data})	
+				} else {  
+					Fish.find({region: req.params.selector}, 
+					//callback
+					function(err, data){
+						if(err){
+							return next(err)
+						} else {
+							res.render('fishSelector', {selector, req.params.selector, fishs: data})
+						}
+					})
+				}
+			}
+		}
+	)
 
+}
+/*
 exports.types = function(req, res){
 	if(req.params.type.toLowerCase() === 'lps'){
 		Coral.find({type: req.params.type},
@@ -124,3 +149,4 @@ exports.renderLps = function(req, res, next) {
 		}
 	})
 }
+*/
